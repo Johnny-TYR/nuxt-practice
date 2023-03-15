@@ -21,7 +21,7 @@
       border: 3px double black;
       margin: 20px;
       &:hover{
-        background-color: lightgreen;
+        background-color: darkcyan;
         color: white;
         border: 3px double white;
       }
