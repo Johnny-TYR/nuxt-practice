@@ -1,22 +1,18 @@
 <template lang="pug">
 #Collapse
   Collapse
-  
 
-  br
-  hr
-  hr
-  br
+
   //- Example
   CollapseTest
     span(slot="title") {{"皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘"}}
     span {{"1\n2\n3"}}
-  CollapseTest
-    span(slot="title") {{"皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘"}}
-    span {{"1\n2\n3"}}
-  CollapseTest
-    span(slot="title") {{"皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘"}}
-    span {{"1\n2\n3"}}
+  //- CollapseTest
+  //-   span(slot="title") {{"皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘"}}
+  //-   span {{"1\n2\n3"}}
+  //- CollapseTest
+  //-   span(slot="title") {{"皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘皮卡丘"}}
+  //-   span {{"1\n2\n3"}}
 </template>
 
 <script>
