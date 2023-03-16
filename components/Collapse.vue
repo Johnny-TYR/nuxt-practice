@@ -2,14 +2,26 @@
 #Collapse
   .arrow-area(@click="HandleClick")
     .arrow-btn(:class="{ 'rotate-arrow': isOpen }") {{ "►" }}
-  .title-area {{ "This is the title" }}
+  .title-area
+    slot(name="title")
   .content-area(ref="CollapseContent", :style="contentAreaStyle")
-    .content-box 
+    .content-box
+      slot(name="content") 
 </template>
 
 <script>
 export default {
   name: "Collapse",
+  props: {
+    headerText: {
+      type: String,
+      default: "title",
+    },
+    contentText: {
+      type: String,
+      default: "content",
+    },
+  },
   data() {
     return {
       isOpen: false,
