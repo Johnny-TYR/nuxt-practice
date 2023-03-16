@@ -1,5 +1,5 @@
 <template lang="pug">
-#Collapse
+#CollapseComponent
   .panel
     .title(@click="ToggleCollapse") {{ "皮卡丘" }}
     .content(:class="{ hide: !isShow }") {{ "This Pokemon is a psychic-type Pokemon " }}
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#Collapse {
+#CollapseComponent {
   outline: auto;
   display: inline-flex;
   flex-direction: column;
