@@ -2,7 +2,7 @@
 #CollapseTest
   .arrow-area.arrow-btn(@click="isOpen=!isOpen")
     .arrow-icon(:class="{'arrow-rotate': isOpen}") {{"►"}}
-  .header-area(@click="isOpen=!isOpen")
+  .header-area
     slot(name="title")
     
   .content-area(ref="CollapseContent" :style="contentStyle")
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // 佈局
 #CollapseTest {
   display: grid;
