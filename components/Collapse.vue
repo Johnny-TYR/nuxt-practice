@@ -2,7 +2,7 @@
 #Collapse
   .arrow-area(@click="HandleClick")
     .arrow-btn(:class="{ 'rotate-arrow': isOpen }") {{ "►" }}
-  .title-area
+  .title-area(@click="HandleClick")
     slot(name="title")
   .content-area(ref="CollapseContent", :style="contentAreaStyle")
     .content-box
