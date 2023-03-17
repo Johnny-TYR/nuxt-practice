@@ -13,6 +13,9 @@
         .content
           input(type="checkbox")
           content content 1
+        .content
+          input(type="checkbox")
+          content content 1
     .gap gap
     .container
       .targetHeader targetHeader
@@ -27,7 +30,7 @@
     // ** container style =======================
     .container {
       display: grid;
-      grid-template-rows: 50px minmax(50px, auto);
+      grid-template-rows: minmax(40p, auto) minmax(50px, auto);
       grid-template-areas:
         "Header"
         "Content";
