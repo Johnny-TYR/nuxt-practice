@@ -6,7 +6,9 @@
       .srcContent
         .content-container
           CheckBox(v-for="num in mockData.length", :key="num") {{ `content ${num}` }}
-    .gap gap
+    .gap
+      .arrow.arrow-icon(@click="send") {{ "▶" }}
+      .arrow.arrow-icon(@click="back") {{ "◀" }}
     .container
       .targetHeader targetHeader
       .targetContent targetContent
@@ -24,6 +26,14 @@ export default {
     return {
       mockData: [1, 2, 3, 4, 5],
     };
+  },
+  methods: {
+    send() {
+      console.log("go to right side");
+    },
+    back() {
+      console.log("go to left side");
+    },
   },
   components: {
     CheckBox: () => import("@/components/Transfer/CheckBox.vue"),
@@ -65,17 +75,24 @@ export default {
     .gap {
       background: red;
       min-width: 50px;
+      @extend .center;
+      flex-direction: column;
+      .arrow {
+        background-color: yellow;
+      }
+      .arrow-icon {
+        user-select: none;
+      }
       // ================ delete
     }
   }
 }
 // 元件
 #Transfer {
-}
-// 其他
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: centers;
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
