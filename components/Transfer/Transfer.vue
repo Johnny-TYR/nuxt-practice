@@ -4,23 +4,32 @@
     .container
       .srcHeader srcHeader
       .srcContent
-        .content
-          input(type="checkbox")
-          content content 1
-        .content
-          input(type="checkbox")
-          content content 1
-        .content
-          input(type="checkbox")
-          content content 1
-        .content
-          input(type="checkbox")
-          content content 1
+        .content-container
+          CheckBox(v-for="num in mockData.length", :key="num") {{ `content ${num}` }}
     .gap gap
     .container
       .targetHeader targetHeader
       .targetContent targetContent
 </template> 
+
+<script>
+export default {
+  props: {
+    data: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      mockData: [1, 2, 3, 4, 5],
+    };
+  },
+  components: {
+    CheckBox: () => import("@/components/Transfer/CheckBox.vue"),
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 // 排版
@@ -50,10 +59,6 @@
       .targetContent {
         grid-area: Content;
         background-color: darkred;
-      }
-      .content {
-        // outline: auto;
-        // display: flex;
       }
     }
     // ** middle container =======================

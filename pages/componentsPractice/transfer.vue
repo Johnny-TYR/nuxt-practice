@@ -1,12 +1,12 @@
 <template lang="pug">
 #TransferPage
-    Transfer
+    Transfer(:data="'Hello'")
 </template>
 
 <script>
 export default {
     components:{
-        Transfer:()=>import("@/components/Transfer.vue")
+        Transfer:()=>import("@/components/Transfer/Transfer.vue")
     }
 }
 </script>
