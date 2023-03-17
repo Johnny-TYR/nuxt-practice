@@ -1,11 +1,11 @@
 <template lang="pug">
 #Transfer
   .containerBox
-    .srcContainer
+    .container
       .srcHeader srcHeader
       .srcContent srcContent
     .gap gap
-    .targetContainer
+    .container
       .targetHeader targetHeader
       .targetContent targetContent
 </template> 
@@ -15,22 +15,28 @@
 #Transfer {
   .containerBox {
     display: flex;
-    // ** left container =======================
-    .srcContainer {
-      outline: auto;
-      // ================ delete
+    // ** container style =======================
+    .container {
       display: grid;
       grid-template-rows: minmax(50px, auto) minmax(100px, auto);
       grid-template-areas:
-        "srcHeader"
-        "srcContent";
+        "Header"
+        "Content";
       .srcHeader {
-        grid-area: srcHeader;
+        grid-area: Header;
         background-color: lightblue;
       }
       .srcContent{
-        grid-area: srcContent;
+        grid-area: Content;
         background-color: darkblue;
+      }
+      .targetHeader {
+        grid-area: Header;
+        background-color: tomato;
+      }
+      .targetContent{
+        grid-area: Content;
+        background-color: darkred;
       }
     }
     // ** middle container =======================
@@ -39,18 +45,12 @@
       min-width: 50px;
       // ================ delete
     }
-    // ** right container =======================
-    .targetContainer {
-      outline: auto;
-      background: yellow;
-      //   min-width: 100px;
-      // ================
-    }
   }
 }
-// 佈局
+// 元件
 #Transfer {
 }
+// 其他
 .center {
   display: flex;
   justify-content: center;
