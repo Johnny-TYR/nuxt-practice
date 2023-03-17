@@ -3,6 +3,8 @@
   Collapse
     h1(slot="title") {{ "Fire" }}
     p(slot="content") {{ "Charmander! I choose you!" }}
+    p(slot="content") {{ "Charmander! I choose you!" }}
+    p(slot="content") {{ "Charmander! I choose you!" }}
   Collapse
     h1(slot="title") {{ "Water" }}
     p(slot="content") {{ "Squirtle! I choose you!" }}

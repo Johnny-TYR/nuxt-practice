@@ -58,18 +58,18 @@ export default {
   // top left ============
   .arrow-area {
     grid-area: arrow;
-    background-color: lightslategray;
+    background-color: #dcdee2;
     @extend .center;
     padding: 0 30px 0 20px;
     // outline: auto;
     .arrow-btn {
-      transition: transform 0.6s ease-in-out;
+      transition: transform 0.2s ease-in-out;
     }
   }
   // top right ===========
   .title-area {
     grid-area: title;
-    background-color: lightslategrey;
+    background-color: #dcdee2;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -77,7 +77,7 @@ export default {
   // bottom row ==========
   .content-area {
     grid-area: content;
-    background-color: goldenrod;
+    background-color: #fff;
     max-height: 0;
     overflow: hidden;
     // text wrap
@@ -85,7 +85,7 @@ export default {
     white-space: pre-wrap;
     word-wrap: break-word;
     // transition
-    transition: 0.4s ease-in-out;
+    transition: 0.2s ease-in-out;
     .content-box {
       padding: 10px 20px;
     }
