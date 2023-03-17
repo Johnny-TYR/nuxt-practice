@@ -1,9 +1,9 @@
 <template lang="pug">
 #ComponentsPractice
-  h1.title {{ "All Different Components" }}
   .navbar
-    Nuxt-link.navlink(to="/componentsPractice/collapse") {{ "Collapse 折疊面板" }}
     Nuxt-link.navlink(to="/componentsPractice/buttons") {{ "Buttons 按紐" }}
+    Nuxt-link.navlink(to="/componentsPractice/collapse") {{ "Collapse 折疊面板" }}
+    Nuxt-link.navlink(to="/componentsPractice/transfer") {{ "Transfer 穿梭匡" }}
   .main
     nuxt-child
 </template>
@@ -19,6 +19,8 @@ export default {
 #ComponentsPractice {
     .navbar{
         background-color: black;
+        margin-bottom: 20px;
+        padding: 20px;
         .navlink{
             text-decoration: none;
             color: white;

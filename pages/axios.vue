@@ -1,6 +1,12 @@
 <template lang="pug">
 #Axios
   h1.title {{ "Axios Practice" }}
+  .problems
+    h1.q-title {{ "遇到的問題！" }}
+    .text {{ notes.one }}
+    .text {{ notes.two }}
+    .solve {{ solutions.one }}
+    .solve {{ solutions.two }}
   button.btn(@click="GetPokeInfo") {{ "Get Sprite Url" }}
   .showLink
     .pokemonCard(v-if="pokemonData")
@@ -12,12 +18,6 @@
       .spriteBox(v-for="index in 107", :key="index")
         img.img(:src="GetShinySprites(index + 386)")
         //- span.span {{ `# ${index + 386}` }}
-  .problems
-    h1.q-title {{ "遇到的問題！" }}
-    .text {{ notes.one }}
-    .text {{ notes.two }}
-    .solve {{ solutions.one }}
-    .solve {{ solutions.two }}
 </template>
 
 <script>
@@ -27,7 +27,8 @@ export default {
       // don't set as empty object, because it's truthy
       pokemonData: null,
       // for getting shiny sprites
-      spriteUrl:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/",
+      spriteUrl:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/",
       // for setting notes text
       notes: {
         one: "1. 我們抓回來的資料要先在 data() 設變數，再將 axios 抓回來的資料用 this.dataName 存入才能使用",
@@ -113,7 +114,7 @@ export default {
     color: white;
     padding: 40px 30px;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     .text {
       margin-top: 20px;
     }
