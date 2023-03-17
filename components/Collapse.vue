@@ -83,7 +83,7 @@ export default {
     white-space: pre-wrap;
     word-wrap: break-word;
     // transition
-    transition: 1s ease-in-out;
+    transition: 0.4s ease-in-out;
     .content-box {
       padding: 10px 20px;
     }

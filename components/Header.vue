@@ -4,8 +4,7 @@
     Nuxt-link.Nuxt-link(to="/") {{ "Home Page" }}
     Nuxt-link.Nuxt-link(to="/vuex") {{ "Vuex Practice" }}
     Nuxt-link.Nuxt-link(to="/axios") {{ "Axios Practice" }}
-    Nuxt-link.Nuxt-link(to="/collapse") {{ "Collapse Component" }}
-    Nuxt-link.Nuxt-link(to="/buttons") {{ "Button Component" }}
+    Nuxt-link.Nuxt-link(to="/componentsPractice") {{ "Components Practice" }}
 </template>
 
 <style lang="scss" scoped>
