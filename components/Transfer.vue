@@ -3,7 +3,16 @@
   .containerBox
     .container
       .srcHeader srcHeader
-      .srcContent srcContent
+      .srcContent
+        .content
+          input(type="checkbox")
+          content content 1
+        .content
+          input(type="checkbox")
+          content content 1
+        .content
+          input(type="checkbox")
+          content content 1
     .gap gap
     .container
       .targetHeader targetHeader
@@ -18,25 +27,30 @@
     // ** container style =======================
     .container {
       display: grid;
-      grid-template-rows: minmax(50px, auto) minmax(100px, auto);
+      grid-template-rows: 50px minmax(50px, auto);
       grid-template-areas:
         "Header"
         "Content";
+      overflow: scroll;
       .srcHeader {
         grid-area: Header;
         background-color: lightblue;
       }
-      .srcContent{
+      .srcContent {
         grid-area: Content;
-        background-color: darkblue;
+        background-color: darkcyan;
       }
       .targetHeader {
         grid-area: Header;
         background-color: tomato;
       }
-      .targetContent{
+      .targetContent {
         grid-area: Content;
         background-color: darkred;
+      }
+      .content {
+        // outline: auto;
+        // display: flex;
       }
     }
     // ** middle container =======================
