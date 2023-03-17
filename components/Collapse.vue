@@ -1,8 +1,8 @@
 <template lang="pug">
 #Collapse
-  .arrow-area(@click="HandleClick")
-    .arrow-btn(:class="{ 'rotate-arrow': isOpen }") {{ "►" }}
   .title-area(@click="HandleClick")
+    .arrow-area
+      .arrow-btn(:class="{ 'rotate-arrow': isOpen }") {{ "►" }}
     slot(name="title")
   .content-area(ref="CollapseContent", :style="contentAreaStyle")
     .content-box
@@ -20,7 +20,7 @@ export default {
     contentText: {
       type: String,
       default: "content",
-    },
+    }
   },
   data() {
     return {
@@ -30,7 +30,7 @@ export default {
   methods: {
     HandleClick() {
       this.isOpen = !this.isOpen;
-      console.log("open");
+      console.log("toggle");
     },
   },
   computed: {
@@ -53,13 +53,15 @@ export default {
   grid-template-rows: minmax(45px, auto) 1fr;
   grid-template-columns: 45px 1fr;
   grid-template-areas:
-    "arrow title"
+    "title title"
     "content content ";
   // top left ============
   .arrow-area {
     grid-area: arrow;
     background-color: lightslategray;
     @extend .center;
+    padding: 0 30px 0 20px;
+    // outline: auto;
     .arrow-btn {
       transition: transform 0.6s ease-in-out;
     }
