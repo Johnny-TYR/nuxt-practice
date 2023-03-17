@@ -50,7 +50,7 @@ export default {
 // 佈局
 #Collapse {
   display: grid;
-  grid-template-rows: minmax(45px auto) 1fr;
+  grid-template-rows: minmax(45px, auto) 1fr;
   grid-template-columns: 45px 1fr;
   grid-template-areas:
     "arrow title"
