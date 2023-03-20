@@ -1,16 +1,21 @@
 <template lang="pug">
 #CheckBox
   .checkbox
-    input(type="checkbox", @change="EmitValue", :value="checkBoxData" v-model="checkList")
+    input(
+      type="checkbox",
+      @change="EmitValue",
+      :value="checkBoxData",
+      v-model="checkList"
+    )
     slot
-  pre {{checkBoxData}}
+  pre {{ checkBoxData }}
 </template>
 
 <script>
 export default {
   name: "CheckBox",
   props: {
-    value: {
+    vvv: {
       type: Array,
       default: () => [],
     },
@@ -21,17 +26,17 @@ export default {
   },
   data() {
     return {
-      checkList: this.value,
+      checkList: this.vvv,
     };
   },
   watch: {
-    value() {
-      this.checkList = this.value;
+    vvv() {
+      this.checkList = this.vvv;
     },
   },
   methods: {
     EmitValue() {
-      this.$emit("input", this.checkList);
+      this.$emit("update", this.checkList);
     },
   },
 };
