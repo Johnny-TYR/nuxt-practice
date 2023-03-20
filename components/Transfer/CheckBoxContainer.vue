@@ -2,20 +2,15 @@
 #CheckBoxContainer
   .container
     .srcHeader
-      input(
-        type="checkbox",
-        ref="selectAllCheck",
-        @change="checkAll",
-        v-model="allIsChecked"
-      )
+      input(type="checkbox", @change="SelectAll", v-model="isChecked")
       .header {{ "原列表" }}
     .srcContent
       .content-container
         CheckBox(
           v-for="pokemon of fakeDataList",
           :key="pokemon.id",
-          v-model="checkList",
-          :checkBoxData="pokemon"
+          :checkBoxData="pokemon",
+          v-model="checkList"
         ) {{ pokemon.name }} - {{ pokemon.id }}
   pre {{ checkList }}
 </template>
@@ -31,28 +26,25 @@ export default {
       type: Array,
       default: () => [],
     },
-    // disabled: {
-    //   type: Boolean,
-    //   default: false,
-    // },
   },
   data() {
     return {
-      allIsChecked: false,
+      // 用來判斷header的框框有沒有勾
+      isChecked: false,
+      // 因爲要選擇 checkbox 需要每個 checkbox 的 id
       checkList: [],
     };
   },
-  mounted() {
-    // console.dir(this.$refs.selectAllCheck)
-    console.log();
-  },
   methods: {
-    checkAll() {
-      if (this.allIsChecked) {
+    SelectAll() {
+      if (this.isChecked) {
+        // 如果 isChecked，就把 fakeDataList 的資料丟進 checkList
         this.checkList.push(...this.fakeDataList);
+        // 為了不讓 array 裡面有重複的值，使用 new Set
         this.checkList = [...new Set(this.checkList)];
         return;
       }
+      // 清空 array
       this.checkList = [];
     },
   },
