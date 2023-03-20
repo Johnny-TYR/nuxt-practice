@@ -5,7 +5,6 @@
     .gap
       .arrow.arrow-icon(@click="send") {{ "▶" }}
       .arrow.arrow-icon(@click="back") {{ "◀" }}
-    CheckBoxContainer(:fakeDataList = "fakeDataList")
 </template> 
 
 <script>

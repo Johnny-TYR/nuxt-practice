@@ -2,15 +2,22 @@
 #CheckBoxContainer
   .container
     .srcHeader
-      input(type="checkbox", ref="selectAllCheck", @click="checkAll = !checkAll")
+      input(
+        type="checkbox",
+        ref="selectAllCheck",
+        @change="checkAll",
+        v-model="allIsChecked"
+      )
       .header {{ "原列表" }}
     .srcContent
       .content-container
         CheckBox(
           v-for="pokemon of fakeDataList",
           :key="pokemon.id",
-          name="checkboxes"
+          v-model="checkList",
+          :checkBoxData="pokemon"
         ) {{ pokemon.name }} - {{ pokemon.id }}
+  pre {{ checkList }}
 </template>
 
 <script>
@@ -24,18 +31,30 @@ export default {
       type: Array,
       default: () => [],
     },
+    // disabled: {
+    //   type: Boolean,
+    //   default: false,
+    // },
   },
   data() {
     return {
-      checkAll: false,
+      allIsChecked: false,
+      checkList: [],
     };
   },
   mounted() {
     // console.dir(this.$refs.selectAllCheck)
-    console.log(this.checkAll)
-    if (this.$refs.selectAllCheck.checked) {
-      console.log("all boxes checked");
-    }
+    console.log();
+  },
+  methods: {
+    checkAll() {
+      if (this.allIsChecked) {
+        this.checkList.push(...this.fakeDataList);
+        this.checkList = [...new Set(this.checkList)];
+        return;
+      }
+      this.checkList = [];
+    },
   },
 };
 </script>
