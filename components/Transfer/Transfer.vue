@@ -1,10 +1,25 @@
 <template lang="pug">
 #Transfer
   .containerBox
-    CheckBoxContainer(:fakeDataList = "fakeDataList")
+    // left side
+    CheckBoxContainer(
+      ref="CheckBoxContainerLeft",
+      :fakeDataList="fakeDataList"
+    )
+      p(slot="title") {{ "源列表" }}
+    // gap
     .gap
-      .arrow.arrow-icon(@click="send") {{ "▶" }}
-      .arrow.arrow-icon(@click="back") {{ "◀" }}
+      button.arrow.arrow-icon(@click="ClickSend") {{ "▶" }}
+      button.arrow.arrow-icon(@click="ClickBack") {{ "◀" }}
+    // right side
+    CheckBoxContainer(
+      ref="CheckBoxContainerRight",
+      :fakeDataList="newDataList"
+    )
+      p(slot="title") {{ "目的列表" }}
+    // only for data showing
+    p {{ "原本的" }}
+    pre {{ fakeDataList }}
 </template> 
 
 <script>
@@ -19,15 +34,30 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      newDataList: [],
+    };
+  },
   mounted() {
-    console.log(this.fakeDataList);
+    // console.log(this.fakeDataList);
   },
   methods: {
-    send() {
+    ClickSend() {
+      const _checkedIdList = this.$refs.CheckBoxContainerLeft.checkedIdList; // 這裡抓的是 CheckBoxContainer 的 computed
+      this.newDataList.push(..._checkedIdList);
+      this.newDataList = [...new Set(this.newDataList)];
+      this.$refs.CheckBoxContainerLeft.ClearCheckList();
+      this.$emit("on-change", this.newDataList);
       console.log("go to right side");
+      console.log(_checkedIdList);
     },
-    back() {
+    ClickBack() {
+      const targetCheckedIdList = this.$refs.CheckBoxContainerRight.targetCheckedIdList;
+      this.checkedIdList.push(...targetCheckedIdList);
+      // this.checkedIdList = [...new Set(this.checkedIdList)]
       console.log("go to left side");
+      console.log(targetCheckedIdList)
     },
   },
 };

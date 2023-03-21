@@ -8,7 +8,7 @@
       v-model="checkList"
     )
     slot
-  pre {{ checkBoxData }}
+  pre {{checkBoxData}}
 </template>
 
 <script>
