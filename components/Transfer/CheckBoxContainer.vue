@@ -3,8 +3,7 @@
   .container
     .srcHeader
       input(type="checkbox", @change="SelectAll", v-model="isChecked")
-      .header 
-        |
+      .header
         slot(name="title")
     .srcContent
       .content-container
@@ -14,7 +13,7 @@
           :checkBoxData="pokemon",
           v-model="checkList"
         ) {{ pokemon.name }} - {{ pokemon.id }}
-  p {{"打勾勾"}}
+  p {{ "打勾勾" }}
   pre {{ checkList }}
 </template>
 // fdadadfasdfa
@@ -57,9 +56,9 @@ export default {
       // 清空 array
       this.checkList = [];
     },
-    ClearCheckList(){
-      this.checkList=[]
-    }
+    ClearCheckList() {
+      this.checkList = [];
+    },
   },
 };
 </script>
