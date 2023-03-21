@@ -8,7 +8,6 @@
       v-model="checkList"
     )
     slot
-  pre {{checkBoxData}}
 </template>
 
 <script>
@@ -44,9 +43,16 @@ export default {
 
 <style lang="scss" scoped>
 #CheckBox {
+  margin-top: 20px;
   .checkbox {
     display: flex;
     align-items: center;
+    font-size: 1em;
+    input[type="checkbox"]{
+      margin-right: 12px;
+      width: 15px;
+      height: 15px;
+    }
   }
 }
 </style>
