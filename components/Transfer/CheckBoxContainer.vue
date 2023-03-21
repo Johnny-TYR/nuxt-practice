@@ -13,8 +13,8 @@
           :checkBoxData="pokemon",
           v-model="checkList"
         ) {{ pokemon.name }} - {{ pokemon.id }}
-  p {{ "打勾勾" }}
-  pre {{ checkList }}
+  //- p {{ "打勾勾" }}
+  //- pre {{ checkList }}
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
     CheckBox: () => import("@/components/Transfer/CheckBox.vue"),
   },
   props: {
-    // 從父層帶進來的
+    // 從父層帶進來的主要資料
     fakeDataList: {
       type: Array,
       default: () => [],
@@ -32,10 +32,8 @@ export default {
   },
   data() {
     return {
-      // 用來判斷header的框框有沒有勾
-      isChecked: false,
-      // 因爲要選擇 checkbox 需要每個 checkbox 的 id
-      checkList: [],
+      isChecked: false, // 用來判斷header的框框有沒有勾
+      checkList: [], // 這個陣列用來裝所有被勾選的資料
     };
   },
   methods: {
@@ -60,31 +58,46 @@ export default {
 <style lang="scss" scoped>
 // 排版
 #CheckBoxContainer {
-  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 200px;
+  height: 230px;
   .container {
     display: grid;
-    grid-template-rows: minmax(40p, auto) minmax(50px, auto);
+    grid-template-rows: 50px minmax(260px 1fr);
     grid-template-areas:
       "Header"
       "Content";
-    overflow: scroll;
-    min-width: 100px;
     .srcHeader {
       grid-area: Header;
-      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      background-color: cyan;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-bottom: 1px solid black;
+      padding: 10px 12px;
+      input[type="checkbox"] {
+        margin-right: 12px;
+        width: 15px;
+        height: 15px;
+      }
     }
     .srcContent {
       grid-area: Content;
-      background-color: darkcyan;
-    }
-    .targetHeader {
-      grid-area: Header;
-      background-color: tomato;
-    }
-    .targetContent {
-      grid-area: Content;
-      background-color: darkred;
+      // background-color: lightblue;
+      background-color: #fff;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      padding: 0 12px;
+      height: 180px;
+      overflow: auto;
     }
   }
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
