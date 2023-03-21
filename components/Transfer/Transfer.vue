@@ -18,8 +18,8 @@
     )
       p(slot="title") {{ "目的列表" }}
     // only for data showing
-    p {{"原本的"}}
-    pre {{  fakeDataList }}
+    p {{ "原本的" }}
+    pre {{ fakeDataList }}
 </template> 
 
 <script>
@@ -49,12 +49,15 @@ export default {
       this.newDataList = [...new Set(this.newDataList)];
       this.$refs.CheckBoxContainerLeft.ClearCheckList();
       this.$emit("on-change", this.newDataList);
-      console.log("right btn clicked", _checkedIdList);
-      console.log(this.newDataList);
+      console.log("go to right side");
+      console.log(_checkedIdList);
     },
     ClickBack() {
+      const targetCheckedIdList = this.$refs.CheckBoxContainerRight.targetCheckedIdList;
+      this.checkedIdList.push(...targetCheckedIdList);
+      // this.checkedIdList = [...new Set(this.checkedIdList)]
       console.log("go to left side");
-      // this.fakeDataList.push({ name: "aaa", id: 5 });
+      console.log(targetCheckedIdList)
     },
   },
 };

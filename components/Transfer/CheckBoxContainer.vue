@@ -41,8 +41,11 @@ export default {
   computed: {
     // 抓給父層
     checkedIdList() {
-      return this.checkList.map((obj) => obj);
+      return this.checkList.map((pokemon) => pokemon);
     },
+    targetCheckedIdList(){
+      return this.checkedIdList.map(pokemon => pokemon)
+    }
   },
   methods: {
     SelectAll() {
