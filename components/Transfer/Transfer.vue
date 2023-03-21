@@ -39,7 +39,7 @@ export default {
   methods: {
     ClickSend() {
       const checkedIdList = this.$refs.CheckBoxContainerLeft.checkedIdList;
-      console.log(checkedIdList);
+      console.log("right btn clicked", checkedIdList);
     },
     ClickBack() {
       console.log("go to left side");
