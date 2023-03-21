@@ -3,7 +3,8 @@
   .container
     .srcHeader
       input(type="checkbox", @change="SelectAll", v-model="isChecked")
-      .header {{ "原列表" }}
+      .header 
+        slot(name="title")
     .srcContent
       .content-container
         CheckBox(

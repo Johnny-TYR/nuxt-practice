@@ -1,18 +1,23 @@
 <template lang="pug">
 #Transfer
   .containerBox
+    // left side
     CheckBoxContainer(
       ref="CheckBoxContainerLeft",
       :fakeDataList="fakeDataList"
     )
+      p(slot="title") {{ "源列表" }}
+    // gap
     .gap
       button.arrow.arrow-icon(@click="ClickSend") {{ "▶" }}
       button.arrow.arrow-icon(@click="ClickBack") {{ "◀" }}
+    // right side
     CheckBoxContainer(
       ref="CheckBoxContainerRight",
       :fakeDataList="fakeDataList"
     )
-
+      p(slot="title") {{ "目的列表" }}
+    // only for data showing
     pre {{ fakeDataList }}
 </template> 
 
@@ -28,15 +33,8 @@ export default {
       default: () => [],
     },
   },
-  computed: {
-    newDataList() {
-      return this.fakeDataList.map((obj) => {
-        return obj.id;
-      });
-    },
-  },
   mounted() {
-    console.log(this.fakeDataList);
+    // console.log(this.fakeDataList);
   },
   methods: {
     ClickSend() {
