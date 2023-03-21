@@ -41,12 +41,15 @@ export default {
       console.log(this.newDataList, checkList);
       this.DeleteArraySelected(this.fakeDataList, checkList);
       this.newDataList.push(...checkList);
+      // this.$refs.CheckBoxContainerLeft.checkList = [];
+      this.ClearCheckList();
     },
     ClickBack() {
       const checkList = this.$refs.CheckBoxContainerRight.checkList; // 這裡抓的是 CheckBoxContainer 的 computed
       console.log(this.newDataList, checkList);
       this.DeleteArraySelected(this.newDataList, checkList);
       this.fakeDataList.push(...checkList);
+      this.ClearCheckList();
     },
     DeleteArraySelected(originArr, selectedArr) {
       for (const selectItem of selectedArr) {
@@ -56,6 +59,10 @@ export default {
           originArr.splice(_findIndex, 1);
         }
       }
+    },
+    ClearCheckList() {
+      this.$refs.CheckBoxContainerLeft.checkList = [];
+      this.$refs.CheckBoxContainerRight.checkList = [];
     },
   },
 };

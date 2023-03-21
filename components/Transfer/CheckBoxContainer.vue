@@ -53,9 +53,6 @@ export default {
     ClearCheckList() {
       this.checkList = [];
     },
-    ClearTargetCheckList() {
-      this.targetCheckedIdList = [];
-    },
   },
 };
 </script>
