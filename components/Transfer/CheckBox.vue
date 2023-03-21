@@ -3,7 +3,7 @@
   .checkbox
     input(type="checkbox", @change="EmitValue", :value="checkBoxData" v-model="checkList")
     slot
-  pre {{checkBoxData}}
+  //- pre {{checkBoxData}}
 </template>
 
 <script>

@@ -1,10 +1,19 @@
 <template lang="pug">
 #Transfer
   .containerBox
-    CheckBoxContainer(:fakeDataList = "fakeDataList")
+    CheckBoxContainer(
+      ref="CheckBoxContainerLeft",
+      :fakeDataList="fakeDataList"
+    )
     .gap
-      .arrow.arrow-icon(@click="send") {{ "▶" }}
-      .arrow.arrow-icon(@click="back") {{ "◀" }}
+      button.arrow.arrow-icon(@click="ClickSend") {{ "▶" }}
+      button.arrow.arrow-icon(@click="ClickBack") {{ "◀" }}
+    CheckBoxContainer(
+      ref="CheckBoxContainerRight",
+      :fakeDataList="fakeDataList"
+    )
+
+    pre {{ fakeDataList }}
 </template> 
 
 <script>
@@ -19,15 +28,24 @@ export default {
       default: () => [],
     },
   },
+  computed: {
+    newDataList() {
+      return this.fakeDataList.map((obj) => {
+        return obj.id;
+      });
+    },
+  },
   mounted() {
     console.log(this.fakeDataList);
   },
   methods: {
-    send() {
-      console.log("go to right side");
+    ClickSend() {
+      const checkedIdList = this.$refs.CheckBoxContainerLeft.checkedIdList;
+      console.log(checkedIdList);
     },
-    back() {
+    ClickBack() {
       console.log("go to left side");
+      this.fakeDataList.push({ name: "aaa", id: 5 });
     },
   },
 };

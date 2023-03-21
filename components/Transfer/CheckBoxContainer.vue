@@ -35,6 +35,11 @@ export default {
       checkList: [],
     };
   },
+  computed: {
+    checkedIdList () {
+        return this.checkList.map(i => i.id);
+    }
+  },
   methods: {
     SelectAll() {
       if (this.isChecked) {
