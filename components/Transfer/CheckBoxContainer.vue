@@ -16,7 +16,7 @@
   p {{ "打勾勾" }}
   pre {{ checkList }}
 </template>
-// fdadadfasdfa
+
 <script>
 export default {
   name: "CheckBoxContainer",
@@ -38,15 +38,6 @@ export default {
       checkList: [],
     };
   },
-  computed: {
-    // 抓給父層
-    checkedIdList() {
-      return this.checkList.map((pokemon) => pokemon);
-    },
-    targetCheckedIdList(){
-      return this.checkedIdList.map(pokemon => pokemon)
-    }
-  },
   methods: {
     SelectAll() {
       if (this.isChecked) {
@@ -61,6 +52,9 @@ export default {
     },
     ClearCheckList() {
       this.checkList = [];
+    },
+    ClearTargetCheckList() {
+      this.targetCheckedIdList = [];
     },
   },
 };

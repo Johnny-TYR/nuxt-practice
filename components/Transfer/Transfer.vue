@@ -1,25 +1,22 @@
 <template lang="pug">
 #Transfer
   .containerBox
-    // left side
+    //- left side
     CheckBoxContainer(
       ref="CheckBoxContainerLeft",
       :fakeDataList="fakeDataList"
     )
       p(slot="title") {{ "源列表" }}
-    // gap
+    //- gap
     .gap
       button.arrow.arrow-icon(@click="ClickSend") {{ "▶" }}
       button.arrow.arrow-icon(@click="ClickBack") {{ "◀" }}
-    // right side
+    //- right side
     CheckBoxContainer(
       ref="CheckBoxContainerRight",
       :fakeDataList="newDataList"
     )
       p(slot="title") {{ "目的列表" }}
-    // only for data showing
-    p {{ "原本的" }}
-    pre {{ fakeDataList }}
 </template> 
 
 <script>
@@ -33,10 +30,14 @@ export default {
       type: Array,
       default: () => [],
     },
+    newDataList: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
-      newDataList: [],
+      // newDataList: [],
     };
   },
   mounted() {
@@ -44,20 +45,26 @@ export default {
   },
   methods: {
     ClickSend() {
-      const _checkedIdList = this.$refs.CheckBoxContainerLeft.checkedIdList; // 這裡抓的是 CheckBoxContainer 的 computed
-      this.newDataList.push(..._checkedIdList);
-      this.newDataList = [...new Set(this.newDataList)];
-      this.$refs.CheckBoxContainerLeft.ClearCheckList();
-      this.$emit("on-change", this.newDataList);
-      console.log("go to right side");
-      console.log(_checkedIdList);
+      const checkList = this.$refs.CheckBoxContainerLeft.checkList; // 這裡抓的是 CheckBoxContainer 的 computed
+      console.log(this.newDataList, checkList);
+      this.DeleteArraySelected(this.fakeDataList, checkList);
+      this.newDataList.push(...checkList);
+      // this.checkList.ClearCheckList();
     },
     ClickBack() {
-      const targetCheckedIdList = this.$refs.CheckBoxContainerRight.targetCheckedIdList;
-      this.checkedIdList.push(...targetCheckedIdList);
-      // this.checkedIdList = [...new Set(this.checkedIdList)]
-      console.log("go to left side");
-      console.log(targetCheckedIdList)
+      const checkList = this.$refs.CheckBoxContainerRight.checkList; // 這裡抓的是 CheckBoxContainer 的 computed
+      console.log(this.newDataList, checkList);
+      this.DeleteArraySelected(this.newDataList, checkList);
+      this.fakeDataList.push(...checkList);
+    },
+    DeleteArraySelected(originArr, selectedArr) {
+      for (const selectItem of selectedArr) {
+        const { id } = selectItem;
+        const _findIndex = originArr.findIndex((item) => item.id === id);
+        if (_findIndex > -1) {
+          originArr.splice(_findIndex, 1);
+        }
+      }
     },
   },
 };

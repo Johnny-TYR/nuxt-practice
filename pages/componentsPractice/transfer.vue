@@ -1,6 +1,14 @@
 <template lang="pug">
 #TransferPage
-  Transfer(:fakeDataList="fakeDataList", @on-change="ChangeFakeDataList")
+  Transfer(
+    :fakeDataList="fakeDataList",
+    :newDataList="newDataList",
+    @on-change="ChangeFakeDataList"
+  )
+  p {{"Original"}}
+  pre {{fakeDataList}}
+  p {{"Transfer"}}
+  pre {{newDataList}}
 </template>
 
 <script>
@@ -16,6 +24,7 @@ export default {
         { name: "Turtwig", id: 3 },
         { name: "Piplup", id: 4 },
       ],
+      newDataList: []
     };
   },
   methods: {
