@@ -14,7 +14,7 @@
     // right side
     CheckBoxContainer(
       ref="CheckBoxContainerRight",
-      :fakeDataList="fakeDataList"
+      :fakeDataList="newDataList"
     )
       p(slot="title") {{ "目的列表" }}
     // only for data showing
@@ -33,17 +33,25 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      newDataList: [],
+    };
+  },
   mounted() {
     // console.log(this.fakeDataList);
   },
   methods: {
     ClickSend() {
-      const checkedIdList = this.$refs.CheckBoxContainerLeft.checkedIdList;
-      console.log("right btn clicked", checkedIdList);
+      const _checkedIdList = this.$refs.CheckBoxContainerLeft.checkedIdList; // 這裡抓的是 CheckBoxContainer 的 computed
+      const newCheckedIdList = this.newDataList.concat(_checkedIdList);
+      this.newDataList = [...new Set(newCheckedIdList)];
+      // console.log("right btn clicked", _checkedIdList);
+      // console.log(newCheckedIdList);
     },
     ClickBack() {
       console.log("go to left side");
-      this.fakeDataList.push({ name: "aaa", id: 5 });
+      // this.fakeDataList.push({ name: "aaa", id: 5 });
     },
   },
 };

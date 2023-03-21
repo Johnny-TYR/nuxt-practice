@@ -4,6 +4,7 @@
     .srcHeader
       input(type="checkbox", @change="SelectAll", v-model="isChecked")
       .header 
+        |
         slot(name="title")
     .srcContent
       .content-container
@@ -15,7 +16,7 @@
         ) {{ pokemon.name }} - {{ pokemon.id }}
   pre {{ checkList }}
 </template>
-
+// fdadadfasdfa
 <script>
 export default {
   name: "CheckBoxContainer",
@@ -23,6 +24,7 @@ export default {
     CheckBox: () => import("@/components/Transfer/CheckBox.vue"),
   },
   props: {
+    // 從父層帶進來的
     fakeDataList: {
       type: Array,
       default: () => [],
@@ -37,9 +39,10 @@ export default {
     };
   },
   computed: {
-    checkedIdList () {
-        return this.checkList.map(i => i.id);
-    }
+    // 抓給父層
+    checkedIdList() {
+      return this.checkList.map((obj) => obj);
+    },
   },
   methods: {
     SelectAll() {
