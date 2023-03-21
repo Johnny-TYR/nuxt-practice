@@ -11,7 +11,8 @@
           v-for="pokemon of fakeDataList",
           :key="pokemon.id",
           :checkBoxData="pokemon",
-          v-model="checkList"
+          :vvv="checkList"
+          @input="(value)=>{checkList= value}"
         ) {{ pokemon.name }} - {{ pokemon.id }}
   //- p {{ "打勾勾" }}
   //- pre {{ checkList }}

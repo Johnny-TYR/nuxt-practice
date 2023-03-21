@@ -14,7 +14,7 @@
 export default {
   name: "CheckBox",
   props: {
-    value: {
+    vvv: {
       type: Array,
       default: () => [],
     },
@@ -25,17 +25,17 @@ export default {
   },
   data() {
     return {
-      checkList: this.value,
+      checkList: this.vvv,
     };
   },
   watch: {
-    value() {
-      this.checkList = this.value;
+    vvv() {
+      this.checkList = this.vvv;
     },
   },
   methods: {
     EmitValue() {
-      this.$emit("input", this.checkList);
+      this.$emit("update", this.checkList);
     },
   },
 };
