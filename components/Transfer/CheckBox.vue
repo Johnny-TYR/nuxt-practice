@@ -1,9 +1,13 @@
 <template lang="pug">
 #CheckBox
   .checkbox
-    input(type="checkbox", @change="EmitValue", :value="checkBoxData" v-model="checkList")
+    input(
+      type="checkbox",
+      @change="EmitValue",
+      :value="checkBoxData",
+      v-model="checkList"
+    )
     slot
-  //- pre {{checkBoxData}}
 </template>
 
 <script>

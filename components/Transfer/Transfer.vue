@@ -35,21 +35,12 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {
-      // newDataList: [],
-    };
-  },
-  mounted() {
-    // console.log(this.fakeDataList);
-  },
   methods: {
     ClickSend() {
       const checkList = this.$refs.CheckBoxContainerLeft.checkList; // 這裡抓的是 CheckBoxContainer 的 computed
       console.log(this.newDataList, checkList);
       this.DeleteArraySelected(this.fakeDataList, checkList);
       this.newDataList.push(...checkList);
-      // this.checkList.ClearCheckList();
     },
     ClickBack() {
       const checkList = this.$refs.CheckBoxContainerRight.checkList; // 這裡抓的是 CheckBoxContainer 的 computed
@@ -87,11 +78,6 @@ export default {
     }
   }
 }
-
-// 元件
-#Transfer {
-}
-
 // universal CSS
 .center {
   display: flex;
