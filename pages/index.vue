@@ -1,6 +1,6 @@
 <template lang="pug">
 #Index
-  h1 {{ "Nuxt Practice Page" }}
+  ToDoList
 </template>
 
 <script>
@@ -8,6 +8,9 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "IndexPage",
+  components: {
+    ToDoList: () => import("@/components/ToDoList/ToDoList.vue"),
+  },
 });
 </script>
 
@@ -16,5 +19,14 @@ export default Vue.extend({
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+</style>
+<style lang="scss" scoped>
+#Index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 91vh;
+  background-color:lightgreen;
 }
 </style>
