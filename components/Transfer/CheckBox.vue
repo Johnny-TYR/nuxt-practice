@@ -14,7 +14,7 @@
 export default {
   name: "CheckBox",
   props: {
-    vvv: {
+    value: {
       type: Array,
       default: () => [],
     },
@@ -25,12 +25,12 @@ export default {
   },
   data() {
     return {
-      checkList: this.vvv,
+      checkList: this.value,
     };
   },
   watch: {
-    vvv() {
-      this.checkList = this.vvv;
+    value() {
+      this.checkList = this.value;
     },
   },
   methods: {
@@ -48,7 +48,7 @@ export default {
     display: flex;
     align-items: center;
     font-size: 1em;
-    input[type="checkbox"]{
+    input[type="checkbox"] {
       margin-right: 12px;
       width: 15px;
       height: 15px;

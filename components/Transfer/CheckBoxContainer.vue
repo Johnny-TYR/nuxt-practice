@@ -11,11 +11,10 @@
           v-for="pokemon of fakeDataList",
           :key="pokemon.id",
           :checkBoxData="pokemon",
-          :vvv="checkList"
-          @input="(value)=>{checkList= value}"
+          :v-model="checkList"
         ) {{ pokemon.name }} - {{ pokemon.id }}
-  //- p {{ "打勾勾" }}
-  //- pre {{ checkList }}
+  p {{ "打勾勾" }}
+  pre {{ checkList }}
 </template>
 
 <script>
@@ -47,9 +46,6 @@ export default {
         return;
       }
       // 清空 array
-      this.checkList = [];
-    },
-    ClearCheckList() {
       this.checkList = [];
     },
   },

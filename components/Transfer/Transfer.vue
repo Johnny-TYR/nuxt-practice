@@ -1,17 +1,14 @@
 <template lang="pug">
 #Transfer
   .containerBox
-    //- left side
     CheckBoxContainer(
       ref="CheckBoxContainerLeft",
       :fakeDataList="fakeDataList"
     )
       p(slot="title") {{ "源列表" }}
-    //- gap
     .gap
       button.arrow.arrow-icon(@click="ClickSend") {{ ">" }}
       button.arrow.arrow-icon(@click="ClickBack") {{ "<" }}
-    //- right side
     CheckBoxContainer(
       ref="CheckBoxContainerRight",
       :fakeDataList="newDataList"
@@ -39,7 +36,7 @@ export default {
     ClickSend() {
       // 這裡抓的是 CheckBoxContainer 的 computed
       const checkList = this.$refs.CheckBoxContainerLeft.checkList;
-      console.log(this.newDataList, checkList);
+      // console.log(this.newDataList, checkList);
       this.DeleteArraySelected(this.fakeDataList, checkList);
       this.newDataList.push(...checkList);
       // this.$refs.CheckBoxContainerLeft.checkList = [];
@@ -48,7 +45,7 @@ export default {
     ClickBack() {
       // 這裡抓的是 CheckBoxContainer 的 computed
       const checkList = this.$refs.CheckBoxContainerRight.checkList;
-      console.log(this.newDataList, checkList);
+      // console.log(this.newDataList, checkList);
       this.DeleteArraySelected(this.newDataList, checkList);
       this.fakeDataList.push(...checkList);
       this.ClearCheckList();

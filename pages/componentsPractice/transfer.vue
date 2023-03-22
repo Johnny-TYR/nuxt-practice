@@ -5,10 +5,10 @@
     :newDataList="newDataList",
     @on-change="ChangeFakeDataList"
   )
-  //- p {{"Original"}}
-  //- pre {{fakeDataList}}
-  //- p {{"Transfer"}}
-  //- pre {{newDataList}}
+  //- p {{ "Original" }}
+  //- pre {{ fakeDataList }}
+  //- p {{ "Transfer" }}
+  //- pre {{ newDataList }}
 </template>
 
 <script>
