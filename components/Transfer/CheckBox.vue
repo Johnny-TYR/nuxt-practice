@@ -8,6 +8,7 @@
       v-model="checkList"
     )
     slot
+  //- pre {{checkBoxData}}
 </template>
 
 <script>
@@ -35,7 +36,7 @@ export default {
   },
   methods: {
     EmitValue() {
-      this.$emit("update", this.checkList);
+      this.$emit("input", this.checkList);
     },
   },
 };
